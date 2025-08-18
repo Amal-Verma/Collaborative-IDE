@@ -1,0 +1,65 @@
+@startuml mappa_collaborative_ide_use_case
+' Mappa Collaborative IDE - Use Case Diagram (Initial Project Stage)
+' Monochrome style
+skinparam monochrome true
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam actorBorderColor black
+skinparam actorBackgroundColor white
+skinparam usecaseBorderColor black
+skinparam usecaseBackgroundColor white
+
+
+
+' Actors (stickmen on the left)
+top to bottom direction
+actor "Project Manager" as PM
+actor "Developer" as Dev
+actor "Team Lead" as TL
+
+' System boundary
+
+' Use cases (grouped on the right inside system boundary)
+rectangle "Mappa Collaborative IDE System" {
+    usecase "Register Account" as UC1
+    usecase "Login/Logout" as UC2
+    usecase "Browse Projects" as UC3
+    usecase "Create Project" as UC4
+    usecase "Manage Team" as UC11
+    usecase "Assign Roles" as UC12
+    usecase "View Activity Log" as UC13
+    usecase "Upload Files" as UC5
+    usecase "Download Files" as UC6
+    usecase "Edit Code Together" as UC7
+    usecase "Share Files" as UC8
+    usecase "Real-time Comments" as UC9
+    usecase "Video Chat" as UC10
+
+}
+
+
+
+' Actor connections (reduced for clarity)
+Dev -- UC1
+Dev -- UC2
+Dev -- UC3
+Dev -- UC4
+Dev -- UC7
+Dev -- UC8
+PM -- UC2
+PM -- UC3
+PM -- UC4
+PM -- UC11
+PM -- UC12
+TL -- UC2
+TL -- UC7
+TL -- UC9
+TL -- UC10
+
+
+
+@enduml

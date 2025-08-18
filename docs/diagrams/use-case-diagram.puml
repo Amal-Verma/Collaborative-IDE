@@ -1,0 +1,85 @@
+
+@startuml Mappa_Collaborative_IDE_Use_Cases
+title Mappa Collaborative IDE - Use Case Diagram (Initial Project Stage)
+skinparam actorStyle stick
+skinparam actorStyle stick
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor white
+  BorderColor black
+  BorderThickness 1
+}
+skinparam actor {
+  BackgroundColor white
+  BorderColor black
+  BorderThickness 1
+}
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+  BorderThickness 1
+}
+skinparam arrow {
+  Color black
+  Thickness 1
+}
+
+
+
+
+' Left: Vertically aligned actors
+actor "Project Manager" as pm <<left>>
+actor Developer as dev <<left>>
+
+
+' Middle: Use cases in a frame, spaced out
+frame "Mappa Collaborative IDE System" {
+    (Register Account) as register
+    (Login/Logout) as login
+    (Browse Projects) as browse
+    (Create Project) as create
+    (Upload Files) as upload
+    (Download Files) as download
+    (Edit Code Together) as edit
+    (Share Files) as share
+    (Real-time Comments) as comment
+    (Video Chat) as video
+}
+register -[hidden]-> login
+login -[hidden]-> browse
+browse -[hidden]-> create
+create -[hidden]-> upload
+upload -[hidden]-> download
+download -[hidden]-> edit
+edit -[hidden]-> share
+share -[hidden]-> comment
+comment -[hidden]-> video
+
+
+' Bottom right: Team Lead actor
+actor "Team Lead" as lead
+
+' Actor to entry points
+dev --> register
+dev --> login
+pm --> login
+lead --> login
+
+' Interdependent flow between use cases
+register --> browse
+login --> browse
+browse --> create
+create --> upload
+upload --> edit
+edit --> share
+edit --> comment
+comment --> video
+
+' Team Lead relationships (right side)
+lead --> edit
+lead --> share
+lead --> comment
+lead --> video
+
+@enduml

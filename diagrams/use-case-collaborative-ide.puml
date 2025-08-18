@@ -1,0 +1,100 @@
+@startuml use-case-collaborative-ide
+title Collaborative IDE - Use Case Diagram
+skinparam monochrome true
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor white
+  BorderColor black
+  BorderThickness 1
+}
+skinparam actor {
+  BackgroundColor white
+  BorderColor black
+  BorderThickness 1
+}
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+  BorderThickness 1
+}
+skinparam arrow {
+  Color black
+  Thickness 1
+}
+left to right direction
+
+'====== ACTORS ======
+actor "Developer" as Dev
+actor "Project Manager" as PM
+
+'====== USE CASES ======
+package "Account" {
+    usecase "Login/Register" as UC_Login
+
+    usecase "Profile Management" as UC_Profile
+}
+
+
+package "Project Management" {
+    usecase "Create Repo" as UC_CreateRepo
+
+    usecase "Manage Repos" as UC_ManageRepos
+
+    usecase "Add Collaborator" as UC_AddCollab
+
+    usecase "View Versions" as UC_ViewVersions
+
+    usecase "Commit Changes" as UC_Commit
+}
+
+
+package "Collaboration" {
+    usecase "Live Code Editing" as UC_LiveEdit
+
+    usecase "Merge Editor" as UC_Merge
+
+    usecase "Chat" as UC_Chat
+
+    usecase "Comments" as UC_Comments
+
+    usecase "Meetings" as UC_Meetings
+}
+
+
+package "AI Features" {
+    usecase "Code Suggestions" as UC_CodeSuggest
+
+    usecase "Code Review" as UC_CodeReview
+
+    usecase "Chatbot" as UC_Chatbot
+}
+
+
+'====== ACTOR TO USE CASE CONNECTIONS ======
+Dev --> UC_Login
+Dev --> UC_Profile
+
+Dev --> UC_CreateRepo
+Dev --> UC_ManageRepos
+Dev --> UC_AddCollab
+Dev --> UC_ViewVersions
+Dev --> UC_Commit
+
+Dev --> UC_LiveEdit
+Dev --> UC_Chat
+Dev --> UC_Comments
+Dev --> UC_Meetings
+Dev --> UC_Merge
+
+Dev --> UC_CodeSuggest
+Dev --> UC_CodeReview
+Dev --> UC_Chatbot
+
+PM --> UC_ManageRepos
+PM --> UC_ViewVersions
+PM --> UC_Comments
+PM --> UC_Meetings
+PM --> UC_CodeReview
+
+@enduml
