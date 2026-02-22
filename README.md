@@ -32,7 +32,7 @@ We use a modern, robust, and scalable technology stack to deliver a seamless use
 * **Framework**: [Next.js](https://nextjs.org/)
 * **Language**: [TypeScript](https://www.typescriptlang.org/)
 * **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-* **Real-Time Communication**: [Socket.IO Client](https://socket.io/) / [Ably](https://ably.com/)
+* **Real-Time Communication**: [Socket.IO Client](https://socket.io/) / [Liveblocks](https://liveblocks.io/)
 * **State Management**: React Context / Zustand
 
 ### **Backend**
